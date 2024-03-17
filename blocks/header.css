@@ -1,0 +1,9 @@
+.header {
+  margin-top: 45px;
+  height: 74px;
+  border-bottom: #545454;
+}
+.header__line {
+  border-bottom: 1px solid #545454;
+  flex-grow: 1;
+}

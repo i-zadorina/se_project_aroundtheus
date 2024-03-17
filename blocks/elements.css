@@ -1,0 +1,53 @@
+.elements {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: #000;
+  margin-top: 50px;
+}
+.elements__cards {
+  display: grid;
+  grid-gap: 20px 17px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+}
+.elements__card {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.elements__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+.elements__description {
+  display: flex;
+  background-color: #fff;
+  padding: 25px 20px 30px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+}
+.elements__title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 220px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  margin: 0;
+}
+.elements__like-button {
+  background: transparent url(../images/heart.svg) center no-repeat;
+  height: 18px;
+  width: 21px;
+  border: none;
+}
+.elements__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

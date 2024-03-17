@@ -1,8 +1,8 @@
-# se_project_aroundtheus
+# se_project_aroundtheusa
 
-url https://github.com/irinafromnorth/se_project_aroundtheus
+url https://github.com/irinafromnorth/se_project_aroundtheusa
 
-This is the second project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the Figma design.
+This is the third project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the Figma design.
 
 ## Project features
 
