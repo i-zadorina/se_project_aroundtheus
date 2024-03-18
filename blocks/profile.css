@@ -16,7 +16,7 @@
 }
 .profile__title {
   font-size: 42px;
-  line-height: 48px;
+  line-height: 1.14;
   font-weight: 500;
   grid-area: title;
   margin: 0;
@@ -32,7 +32,7 @@
   padding: 0;
 }
 .profile__description {
-  line-height: 22px;
+  line-height: 1.22;
   font-size: 18px;
   font-weight: 400;
   grid-area: description;
@@ -59,9 +59,17 @@
   .profile__description {
     width: 100%;
     text-align: center;
+    font-size: 14px;
+    line-height: 1;
   }
   .profile__add-button {
-    margin: 0;
-    width: 100%;
+    margin: 36px 0;
+    width: 282px;
+  }
+  .profile__title {
+    text-align: center;
+    margin: 30px 10px 14px 0;
+    font-size: 22px;
+    line-height: 1;
   }
 }

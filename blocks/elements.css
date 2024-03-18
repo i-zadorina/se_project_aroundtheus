@@ -38,7 +38,7 @@
   max-width: 220px;
   font-size: 24px;
   font-weight: 900;
-  line-height: 29px;
+  line-height: 1.2;
   margin: 0;
 }
 .elements__like-button {
@@ -50,4 +50,9 @@
 .elements__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+@media screen and (max-width: 775px) {
+  .elements {
+    margin: 0 auto;
+  }
 }
