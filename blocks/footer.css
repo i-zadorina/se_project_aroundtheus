@@ -3,9 +3,18 @@
   margin-bottom: 60px;
   margin-top: 67px;
 }
+.footer__signature {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+}
 @media screen and (max-width: 775px) {
   .footer {
     margin: 36px auto;
     width: 282px;
+  }
+  .footer__signature {
+    font-size: 14px;
   }
 }
