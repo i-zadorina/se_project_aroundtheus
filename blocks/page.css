@@ -4,13 +4,14 @@
   background-color: #000;
   color: #fff;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 .page__section {
   max-width: 880px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+  padding: 0;
 }
 .page__content {
   display: flex;
@@ -18,10 +19,10 @@
   min-height: 100vh;
   font-size: 18px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  padding: 0 20px;
 }
-@media screen and (max-width: 775px) {
-  .page__section {
-    margin: 0 20px;
-    max-width: calc(100% - 40px);
+@media screen and (max-width: 620px) {
+  .page__content {
+    padding: 0;
   }
 }

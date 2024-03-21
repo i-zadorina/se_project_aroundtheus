@@ -3,11 +3,13 @@
   min-height: 74px;
   border-bottom: 1px solid rgba(84, 84, 84, 1);
   min-width: 282px;
+  padding: 0;
 }
 .header__image {
   max-height: 33px;
+  padding: 0;
 }
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 620px) {
   .header {
     margin: 28px auto 0 auto;
     min-height: 56px;
@@ -15,5 +17,6 @@
   }
   .header__image {
     max-height: 24px;
+    margin-left: 27px;
   }
 }

@@ -2,6 +2,7 @@
   color: #545454;
   margin-bottom: 60px;
   margin-top: 67px;
+  padding: 0;
 }
 .footer__signature {
   margin: 0;
@@ -9,7 +10,7 @@
   font-size: 18px;
   line-height: 1.21;
 }
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 620px) {
   .footer {
     margin: 36px auto;
     width: 282px;
