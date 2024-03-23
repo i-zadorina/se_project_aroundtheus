@@ -39,7 +39,7 @@
   padding: 0;
 }
 .profile__edit-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 .profile__description {
@@ -65,7 +65,7 @@
   flex-shrink: 3;
 }
 .profile__add-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 @media screen and (max-width: 620px) {
@@ -79,6 +79,7 @@
     justify-content: center;
     grid-gap: 14px 10px;
     margin-right: 12px;
+    margin-left: 19px;
   }
   .profile__description {
     width: 100%;

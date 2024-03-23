@@ -12,7 +12,7 @@
 }
 @media screen and (max-width: 620px) {
   .footer {
-    margin: 36px auto;
+    margin: 48px auto 36px;
     width: 282px;
   }
   .footer__signature {
