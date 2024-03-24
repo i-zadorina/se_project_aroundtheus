@@ -1,6 +1,6 @@
 # se_project_aroundtheusa
 
-url https://irinafromnorth.github.io/se_project_aroundtheusa/
+url https://i-zadorina.github.io/se_project_aroundtheusa/
 
 video about Project https://vimeo.com/924999149/b4b85128b3?share=copy
 
