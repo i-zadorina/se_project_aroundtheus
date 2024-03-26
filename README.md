@@ -1,6 +1,6 @@
-# se_project_aroundtheusa
+# se_project_aroundtheus
 
-url https://i-zadorina.github.io/se_project_aroundtheusa/
+url https://i-zadorina.github.io/se_project_aroundtheus/
 
 video about Project https://vimeo.com/924999149/b4b85128b3?share=copy
 
