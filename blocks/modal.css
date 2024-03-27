@@ -33,6 +33,10 @@
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
 }
+.modal__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 .modal__heading {
   color: #000;
   font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -73,6 +77,10 @@
   width: 100%;
   border-radius: 2px;
   border: none;
+}
+.modal__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 @media screen and (max-width: 620px) {
   .modal__container {
