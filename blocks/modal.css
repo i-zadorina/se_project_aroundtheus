@@ -32,6 +32,7 @@
   height: 40px;
   bottom: calc(100% + 5px);
   left: calc(100% + 5px);
+  padding: 0;
 }
 .modal__close:hover {
   opacity: 0.6;
