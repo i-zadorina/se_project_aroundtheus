@@ -32,6 +32,7 @@
               type="button"
               aria-label="Edit"
               class="profile__edit-button"
+              id="profile-edit-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
@@ -140,23 +141,23 @@
         <p class="footer__signature">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
-    <div class="modal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button class="modal__close" id="modal-close"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
           <input
             class="modal__input"
             type="text"
             name="title"
-            placeholder="Jacques Cousteau"
+            placeholder="Name"
             required
           />
           <input
             class="modal__input"
             type="text"
             name="description"
-            placeholder="Explorer"
+            placeholder="Description"
             required
           />
         </form>
