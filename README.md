@@ -2,24 +2,22 @@
 
 url https://i-zadorina.github.io/se_project_aroundtheus/
 
-video about Project https://vimeo.com/924999149/b4b85128b3?share=copy
+video about the Project https://vimeo.com/924999149/b4b85128b3?share=copy
 
-This is the third project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the Figma design.
+This is the third project of the Software Engineering program at TripleTen. It was created using HTML, CSS and JavaScript, based on the Figma design.
 
 ## Project features
 
 - Semantic HTML5
-- Flexbox
-- Positioning
+- Flexbox and Grid
+- Positioning and Responsive design
 - Flat BEM file structure
 - A custom form
-- CSS animation and transform
-- Grid Layout
-- Figma
 - Interface for Desktop and Mobile
-- Responsive design
+- The DOM
+- Nodes, Events and Templates in JavaScript
 
 ### Plan on improving the project
 
 - Add interface for Tablet
-- Add function of editing and adding where it needs
+- Add function of adding new users
