@@ -40,6 +40,7 @@
             type="button"
             aria-label="Add"
             class="profile__add-button"
+            id="profile-add-button"
           ></button>
         </section>
         <section class="cards page__section">
@@ -50,6 +51,7 @@
         <p class="footer__signature">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
+    <!-- Edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close"></button>
@@ -70,6 +72,30 @@
             placeholder="Description"
           />
           <button class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add modal -->
+    <div class="modal" id="profile-add-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button" id="modal-close"></button>
+        <p class="modal__heading">New place</p>
+        <form class="modal__form" id="modal-form">
+          <input
+            class="modal__input"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="Title"
+          />
+          <input
+            class="modal__input"
+            type="text"
+            name="link"
+            id="profile-link-input"
+            placeholder="Image link"
+          />
+          <button class="modal__button">Create</button>
         </form>
       </div>
     </div>
