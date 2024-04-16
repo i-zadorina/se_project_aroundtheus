@@ -38,6 +38,7 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector("#modal-form");
 const profileAddButton = document.querySelector("#profile-add-button");
+// Cards
 const cardListEl = document.querySelector("#card-list");
 const cardTemplate = document
   .querySelector("#card-template")
@@ -56,6 +57,18 @@ function getCardElement(cardData) {
   cardImageEl.src = cardData.link;
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
+
+  const likeButton = cardElement.querySelector(".card__like-button");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+  // find delete button
+
+  // add event listener to the delete button
+  //cardElement.remove();
+
+  // add click listener to the cardImageEl
+  // openModal with previewImageModal
   return cardElement;
 }
 // Event Handlers
