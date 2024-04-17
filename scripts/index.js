@@ -77,6 +77,11 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     const previewImageModal = document.querySelector(".modal__preview");
     openModal(previewImageModal);
+    const cardImagePrev = document.querySelector(".modal__image-preview");
+    cardImagePrev.alt = `Image of ${cardData.name}`;
+    cardImagePrev.src = cardData.link;
+    const cardTitlePrev = document.querySelector(".modal__image-title");
+    cardTitlePrev.textContent = cardData.name;
   });
   return cardElement;
 }
