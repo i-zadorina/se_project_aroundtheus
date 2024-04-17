@@ -74,8 +74,10 @@ function getCardElement(cardData) {
     likeButton.classList.toggle("card__like-button_active");
   });
   // Preview
-  // add click listener to the cardImageEl
-  // openModal with previewImageModal
+  cardImageEl.addEventListener("click", () => {
+    const previewImageModal = document.querySelector(".modal__preview");
+    openModal(previewImageModal);
+  });
   return cardElement;
 }
 // Event Handlers
@@ -106,6 +108,12 @@ profileAddButton.addEventListener("click", () => openModal(profileAddModal));
 profileAddCloseButton.addEventListener("click", () =>
   closeModal(profileAddModal)
 );
+
+const previewCloseButton = document.querySelector("#preview-close");
+previewCloseButton.addEventListener("click", () => {
+  const previewImageModal = document.querySelector(".modal__preview");
+  closeModal(previewImageModal);
+});
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
