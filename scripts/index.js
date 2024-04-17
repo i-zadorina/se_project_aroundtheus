@@ -65,18 +65,15 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
   // Like and Delete Buttons
-  // const deleteButton = cardElement.querySelector(".card__delete-button");
-  //   deleteButton.addEventListener("click", () => {
-  //     likeButton.classList.remove("card__like-button_active");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
-  // find delete button
-
-  // add event listener to the delete button
-  //cardElement.remove();
-
+  // Preview
   // add click listener to the cardImageEl
   // openModal with previewImageModal
   return cardElement;
