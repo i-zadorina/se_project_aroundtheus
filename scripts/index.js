@@ -26,6 +26,7 @@ const initialCards = [
 ];
 
 const profileEditButton = document.querySelector("#profile-edit-button");
+const profileAddButton = document.querySelector("#profile-add-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileAddModal = document.querySelector("#profile-add-modal");
 const profileEditCloseButton = profileEditModal.querySelector("#modal-close");
@@ -37,7 +38,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector("#modal-form");
-const profileAddButton = document.querySelector("#profile-add-button");
+const profileAddForm = document.querySelector("#modal-add-form");
 // Cards
 const cardListEl = document.querySelector("#card-list");
 const cardTemplate = document
@@ -54,7 +55,7 @@ function closeModal(modal) {
 }
 function renderCard(cardData, cardList) {
   const cardElement = getCardElement(cardData);
-  cardList.append(cardElement);
+  cardList.prepend(cardElement);
 }
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -63,7 +64,10 @@ function getCardElement(cardData) {
   cardImageEl.src = cardData.link;
   const cardTitleEl = cardElement.querySelector(".card__title");
   cardTitleEl.textContent = cardData.name;
-
+  // Like and Delete Buttons
+  // const deleteButton = cardElement.querySelector(".card__delete-button");
+  //   deleteButton.addEventListener("click", () => {
+  //     likeButton.classList.remove("card__like-button_active");
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -107,6 +111,6 @@ profileAddCloseButton.addEventListener("click", () =>
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-profileAddButton.addEventListener("submit", handleProfileAddSubmit);
+profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
