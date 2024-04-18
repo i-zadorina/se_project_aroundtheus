@@ -32,7 +32,7 @@
               type="button"
               aria-label="Edit"
               class="profile__edit-button"
-              id="profile-edit-button"
+              id="edit-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
@@ -40,7 +40,7 @@
             type="button"
             aria-label="Add"
             class="profile__add-button"
-            id="profile-add-button"
+            id="add-button"
           ></button>
         </section>
         <section class="cards page__section">
@@ -52,23 +52,23 @@
       </footer>
     </div>
     <!-- Edit modal -->
-    <div class="modal" id="profile-edit-modal">
+    <div class="modal" id="edit-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">Edit profile</p>
-        <form class="modal__form" id="modal-form">
+        <form class="modal__form" id="modal-edit-form">
           <input
             class="modal__input"
             type="text"
             name="title"
-            id="profile-title-input"
+            id="title-input"
             placeholder="Name"
           />
           <input
             class="modal__input"
             type="text"
             name="description"
-            id="profile-description-input"
+            id="description-input"
             placeholder="Description"
           />
           <button class="modal__button">Save</button>
@@ -76,7 +76,7 @@
       </div>
     </div>
     <!-- Add modal -->
-    <div class="modal" id="profile-add-modal">
+    <div class="modal" id="add-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">New place</p>

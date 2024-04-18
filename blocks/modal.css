@@ -25,18 +25,19 @@
   width: 358px;
 }
 .modal__container_image-preview {
-  max-width: 75vw;
   max-height: 75vh;
+  max-width: 75vw;
   padding: 0;
   background-color: transparent;
-  width: 100%;
   display: flex;
   gap: 10px;
   flex-direction: column;
+  width: auto;
 }
 .modal__image-preview {
-  max-width: 75vw;
   max-height: 75vh;
+  max-width: 75vw;
+  margin: 0 auto;
 }
 .modal__image-title {
   color: #fff;
@@ -117,8 +118,8 @@
     padding: 25px 22px;
   }
   .modal__container_image-preview {
-    margin: auto 20px;
     position: relative;
+    width: auto;
   }
   .modal__close {
     bottom: calc(100% + 26px);
