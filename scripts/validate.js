@@ -49,7 +49,6 @@ function enableValidation(options) {
     });
     setEventListeners(formEl, options);
   });
-  console.log(formEls);
 }
 const options = {
   formSelector: ".modal__form",
