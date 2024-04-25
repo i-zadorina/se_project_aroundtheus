@@ -1,3 +1,4 @@
+// Constants
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,7 +25,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
 const editButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector("#add-button");
 const editModal = document.querySelector("#edit-modal");
@@ -44,7 +44,7 @@ const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 const cardTitleInput = document.querySelector("#add-title-input");
-const cardUrlInput = document.querySelector("#profile-link-input");
+const cardUrlInput = document.querySelector("#link-input");
 // Functions
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -99,7 +99,6 @@ function handleAddCardSubmit(e) {
   addCardForm.reset();
 }
 // Event Listeners
-
 editButton.addEventListener("click", () => {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;

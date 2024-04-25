@@ -57,20 +57,33 @@
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form" id="modal-edit-form">
-          <input
-            class="modal__input"
-            type="text"
-            name="title"
-            id="title-input"
-            placeholder="Name"
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="description"
-            id="description-input"
-            placeholder="Description"
-          />
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_error"
+              type="text"
+              name="title"
+              id="title-input"
+              placeholder="Name"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="modal__error" id="title-input-error"></span>
+          </label>
+          <label class="modal__label"
+            ><input
+              class="modal__input modal__input_type_error"
+              type="text"
+              name="description"
+              id="description-input"
+              placeholder="Description"
+              minlength="2"
+              maxlength="200"
+              required /><span
+              class="modal__error"
+              id="description-input-error"
+            ></span
+          ></label>
           <button class="modal__button">Save</button>
         </form>
       </div>
@@ -81,21 +94,32 @@
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">New place</p>
         <form class="modal__form" id="modal-add-form">
-          <input
-            class="modal__input"
-            type="text"
-            name="title"
-            id="add-title-input"
-            placeholder="Title"
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="link"
-            id="profile-link-input"
-            placeholder="Image link"
-          />
-          <button class="modal__button">Create</button>
+          <label class="modal__label"
+            ><input
+              class="modal__input modal__input_type_error"
+              type="text"
+              name="title"
+              id="add-title-input"
+              placeholder="Title"
+              minlength="1"
+              maxlength="30"
+              required /><span
+              class="modal__error"
+              id="add-title-input-error"
+            ></span
+          ></label>
+          <label class="modal__label"
+            ><input
+              class="modal__input modal__input_type_error"
+              type="url"
+              name="link"
+              id="link-input"
+              placeholder="Image link"
+              required /><span class="modal__error" id="link-input-error"></span
+          ></label>
+          <button class="modal__button modal__button_disabled" disabled>
+            Create
+          </button>
         </form>
       </div>
     </div>
@@ -131,5 +155,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
