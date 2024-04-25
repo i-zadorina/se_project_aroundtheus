@@ -117,3 +117,16 @@ editForm.addEventListener("submit", handleEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal(editModal);
+    closeModal(addCardModal);
+    closeModal(previewImageModal);
+  }
+});
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("modal_opened")) {
+    closeModal(event.target);
+  }
+});
