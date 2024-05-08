@@ -58,6 +58,7 @@ const validationOptions = {
 };
 const editFormValidator = new FormValidator(validationOptions, editForm);
 const addCardFormValidator = new FormValidator(validationOptions, addCardForm);
+
 editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 // Cards
@@ -77,6 +78,8 @@ function closeModal(modal) {
   document.removeEventListener("keydown", closeWithEscape);
 }
 function renderCard(cardData, cardList) {
+  // const card = new Card(cardData, "#card-template");
+  // cardList.prepend(card.getView());
   const cardElement = getCardElement(cardData);
   cardList.prepend(cardElement);
 }
