@@ -18,7 +18,7 @@ The instructors provided us with videos assisting us in the basic structure of t
 - Nodes, Events and Templates in JavaScript
 - OOP and Modular JavaScript
 
-  ![Project screenshot](https://raw.githubusercontent.com/i-zadorina/se_project_aroundtheus/d5ed6b0d6c93d6e14985bc284437cb3678136942/ScreenAroundTheUS.jpg)
+  ![Project screenshot](https://github.com/i-zadorina/se_project_aroundtheus/raw/assets/ScreenAroundTheUS.jpg)
 
 ### Plan on improving the project
 
