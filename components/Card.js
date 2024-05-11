@@ -1,5 +1,3 @@
-// const previewImageModal = document.querySelector(".modal__preview");
-// const allModals = document.querySelectorAll(".modal");
 export default class Card {
   constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
@@ -7,13 +5,13 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
+
   _setEventListeners() {
     // ".card__like-button"
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
+    this._likeBtn = this._cardElement.querySelector(".card__like-button");
+    this._likeBtn.addEventListener("click", () => {
+      this._handleLikeIcon();
+    });
     //".card__delete-button"
     this._cardElement
       .querySelector(".card__delete-button")
@@ -21,19 +19,18 @@ export default class Card {
         this._handleDeleteCard();
       });
     // image preview
+    this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick();
     });
   }
   _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    this._likeBtn.classList.toggle("card__like-button_active");
   }
   _handleDeleteCard() {
     this._cardElement.remove();
+    this._element = null;
   }
-  _handleImageClick() {}
 
   _getTemplate() {
     this._cardElement = document
