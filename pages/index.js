@@ -84,7 +84,6 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
   addCardForm.reset();
-  addCardFormValidator.disableButton();
 }
 
 function handleImageClick(name, link) {
@@ -119,12 +118,12 @@ closeButtons.forEach((button) => {
 editButton.addEventListener("click", () => {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
+  editFormValidator.resetValidation();
   openModal(editModal);
 });
 
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  // addCardFormValidator.resetValidation();
 });
 
 editForm.addEventListener("submit", handleEditSubmit);
