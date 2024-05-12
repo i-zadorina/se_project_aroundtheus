@@ -39,17 +39,17 @@ const editButton = document.querySelector("#edit-button");
 const addCardButton = document.querySelector("#add-button");
 const editModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-modal");
-const editCloseButton = editModal.querySelector("#modal-close");
-const addCardCloseButton = addCardModal.querySelector("#modal-close");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
 const titleInput = document.querySelector("#title-input");
 const descriptionInput = document.querySelector("#description-input");
 const editForm = document.forms["modal-edit-form"];
 const addCardForm = document.forms["modal-add-form"];
-const allModals = document.querySelectorAll(".modal");
 const previewImageModal = document.querySelector(".modal__preview");
 const cardImagePrev = document.querySelector(".modal__image-preview");
 const cardTitlePrev = document.querySelector(".modal__image-title");
-const previewCloseButton = document.querySelector("#preview-close");
+const allModals = document.querySelectorAll(".modal");
+const closeButtons = document.querySelectorAll(".modal__close");
 // Validation
 const validationOptions = {
   inputSelector: ".modal__input",
@@ -70,16 +70,10 @@ function openModal(modal) {
   document.addEventListener("keydown", closeWithEscape);
 }
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeWithEscape);
-}
-
 function handleEditSubmit(e) {
   e.preventDefault();
-  document.querySelector(".profile__title").textContent = titleInput.value;
-  document.querySelector(".profile__description").textContent =
-    descriptionInput.value;
+  profileTitle.textContent = titleInput.value;
+  profileDescription.textContent = descriptionInput.value;
   closeModal(editModal);
 }
 
@@ -90,8 +84,20 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
   addCardForm.reset();
+  addCardFormValidator.disableButton();
 }
 
+function handleImageClick(name, link) {
+  openModal(previewImageModal);
+  cardImagePrev.src = link;
+  cardImagePrev.alt = `Image of ${name}`;
+  cardTitlePrev.textContent = name;
+}
+// Close modals
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeWithEscape);
+}
 function closeWithEscape(e) {
   if (e.key === "Escape") {
     const modalOpened = document.querySelector(".modal_opened");
@@ -105,43 +111,35 @@ allModals.forEach((modal) => {
     }
   });
 });
+closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(popup));
+});
 // Listeners/Handlers
 editButton.addEventListener("click", () => {
-  const profileTitle = document.querySelector(".profile__title");
-  const profileDescription = document.querySelector(".profile__description");
-  document.querySelector("#title-input").value = profileTitle.textContent;
-  document.querySelector("#description-input").value =
-    profileDescription.textContent;
+  titleInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
   openModal(editModal);
 });
 
-editCloseButton.addEventListener("click", () => closeModal(editModal));
 addCardButton.addEventListener("click", () => {
-  addCardFormValidator.resetValidation();
   openModal(addCardModal);
-});
-
-addCardCloseButton.addEventListener("click", () => closeModal(addCardModal));
-previewCloseButton.addEventListener("click", () => {
-  closeModal(previewImageModal);
+  // addCardFormValidator.resetValidation();
 });
 
 editForm.addEventListener("submit", handleEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
-function handleImageClick() {
-  cardImagePrev.src = cardData.link;
-  cardImagePrev.alt = `Image of ${cardData.name}`;
-  cardTitlePrev.textContent = cardData.name;
-  openModal(previewImageModal);
-}
-
-initialCards.forEach((cardData) => {
+// Get view cards
+function createCard(cardData) {
   const card = new Card(cardData, cardSelector, handleImageClick);
-  cardListEl.appendChild(card.getView());
-});
-
+  const cardElement = card.getView();
+  return cardElement;
+}
 function renderCard(cardData, cardList) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
-  cardList.prepend(card.getView());
+  const cardElement = createCard(cardData);
+  cardList.prepend(cardElement);
 }
+initialCards.forEach((cardData) => {
+  renderCard(cardData, cardListEl);
+});
