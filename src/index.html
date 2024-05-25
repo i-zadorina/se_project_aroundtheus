@@ -8,13 +8,13 @@
     <meta name="author" content="Irina Zadorina" />
 
     <title>Around the U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./images/favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/Around.svg"
+          src="<%=require(./images/Around.svg)%>"
           alt="Around The U.S. logo"
           class="header__image"
         />
@@ -22,7 +22,7 @@
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/Avatar.png"
+            src="<%=require(./images/Avatar.png)%>"
             alt="Avatar of Jacques Cousteau"
             class="profile__image"
           />
@@ -124,7 +124,7 @@
       </div>
     </div>
     <!-- Image preview -->
-    <div class="modal modal__preview">
+    <div class="modal modal__preview" id="modal-preview">
       <div class="modal__container modal__container_image-preview">
         <button
           class="modal__close modal__close_preview"
@@ -154,6 +154,5 @@
         </div>
       </li>
     </template>
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
