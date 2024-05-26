@@ -6,7 +6,6 @@
     <meta name="description" content="Around the USA" />
     <meta name="keywords" content="usa,nature,view" />
     <meta name="author" content="Irina Zadorina" />
-
     <title>Around the U.S.</title>
     <link rel="icon" href="./images/favicon.ico" />
   </head>
@@ -70,8 +69,8 @@
             />
             <span class="modal__error" id="title-input-error"></span>
           </label>
-          <label class="modal__label"
-            ><input
+          <label class="modal__label">
+            <input
               class="modal__input modal__input_type_error"
               type="text"
               name="description"
@@ -79,11 +78,10 @@
               placeholder="Description"
               minlength="2"
               maxlength="200"
-              required /><span
-              class="modal__error"
-              id="description-input-error"
-            ></span
-          ></label>
+              required
+            />
+            <span class="modal__error" id="description-input-error"></span>
+          </label>
           <button class="modal__button">Save</button>
         </form>
       </div>
@@ -94,8 +92,8 @@
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">New place</p>
         <form class="modal__form" id="modal-add-form">
-          <label class="modal__label"
-            ><input
+          <label class="modal__label">
+            <input
               class="modal__input modal__input_type_error"
               type="text"
               name="title"
@@ -103,20 +101,21 @@
               placeholder="Title"
               minlength="1"
               maxlength="30"
-              required /><span
-              class="modal__error"
-              id="add-title-input-error"
-            ></span
-          ></label>
-          <label class="modal__label"
-            ><input
+              required
+            />
+            <span class="modal__error" id="add-title-input-error"></span>
+          </label>
+          <label class="modal__label">
+            <input
               class="modal__input modal__input_type_error"
               type="url"
               name="link"
               id="link-input"
               placeholder="Image link"
-              required /><span class="modal__error" id="link-input-error"></span
-          ></label>
+              required
+            />
+            <span class="modal__error" id="link-input-error"></span>
+          </label>
           <button class="modal__button modal__button_disabled" disabled>
             Save
           </button>
@@ -129,30 +128,12 @@
         <button
           class="modal__close modal__close_preview"
           type="button"
-          id="preview-close"
+          id="modal-close-preview"
         ></button>
-        <img class="modal__image-preview" src="" alt="" />
-        <p class="modal__image-title"></p>
+        <img src="#" alt="#" class="modal__image-preview" />
+        <p class="modal__caption"></p>
       </div>
     </div>
-    <!-- Template of cards -->
-    <template id="card-template">
-      <li class="card">
-        <img class="card__image" src="" alt="" />
-        <button
-          type="button"
-          aria-label="Delete"
-          class="card__delete-button"
-        ></button>
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button
-            type="button"
-            aria-label="Like"
-            class="card__like-button"
-          ></button>
-        </div>
-      </li>
-    </template>
+    <script src="./index.js"></script>
   </body>
 </html>
