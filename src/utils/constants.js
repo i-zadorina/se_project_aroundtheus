@@ -30,7 +30,7 @@ export const cardSelector = "#card-template";
 export const editButton = document.querySelector("#edit-button");
 export const addCardButton = document.querySelector("#add-button");
 export const editForm = document.forms["modal-edit-form"];
-export const addCardForm = document.forms["modal-add-form"];
+export const addForm = document.forms["modal-add-form"];
 export const titleInput = document.querySelector("#title-input");
 export const descriptionInput = document.querySelector("#description-input");
 // Validation

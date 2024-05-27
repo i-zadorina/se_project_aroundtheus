@@ -42,7 +42,7 @@ export default class Card {
     // get the card view
     this._cardElement = this._getTemplate();
     this._cardImage = this._cardElement.querySelector(".card__image");
-    this._cardImage.alt = `Image of ${this.name}`;
+    this._cardImage.alt = this.name;
     this._cardImage.src = this.link;
     this._cardTitle = this._cardElement.querySelector(".card__title");
     this._cardTitle.textContent = this.name;

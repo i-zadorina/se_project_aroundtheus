@@ -8,15 +8,24 @@ import UserInfo from "../components/UserInfo.js";
 import "./index.css";
 
 // Function to create card elements
-function createCard(cardData) {
-  const cardElement = new Card(
-    cardData,
-    constants.cardSelector,
-    handleImageClick
-  );
+function createCard(data) {
+  const cardElement = new Card(data, constants.cardSelector, handleImageClick);
   return cardElement.getView();
 }
+// Section for rendering cards
+const cardSection = new Section(
+  {
+    items: constants.initialCards,
+    renderer: renderCard,
+  },
+  ".cards__list"
+);
+cardSection.renderItems();
 
+function renderCard(item) {
+  const cardElement = createCard(item);
+  cardSection.addItem(cardElement);
+}
 // UserInfo
 const userInformation = new UserInfo({
   name: ".profile__title",
@@ -31,8 +40,8 @@ const profileEditForm = new PopupWithForm("#edit-modal", handleEditSubmit);
 profileEditForm.setEventListeners();
 
 // Handlers
-function handleImageClick(name, link) {
-  popupImage.open({ name, link });
+function handleImageClick() {
+  popupImage.open(this);
 }
 
 function handleEditSubmit(data) {
@@ -44,10 +53,13 @@ function handleEditSubmit(data) {
 }
 
 function handleAddCardSubmit(data) {
-  cardSection.addItem(createCard({ name: data.title, link: data.link }));
+  const name = data.name;
+  const link = data.link;
+  const cardData = { name, link };
+  const cardElement = createCard(cardData);
+  cardSection.addItem(cardElement);
   addCardForm.close();
 }
-
 // Event listeners for opening modals
 constants.editButton.addEventListener("click", () => {
   editFormValidator.resetValidation();
@@ -65,19 +77,6 @@ constants.addCardButton.addEventListener("click", () => {
 const popupImage = new PopupWithImage("#modal-preview");
 popupImage.setEventListeners();
 
-// Section for rendering cards
-const cardSection = new Section(
-  {
-    items: constants.initialCards,
-    renderer: (cardData) => {
-      const cardElement = createCard(cardData);
-      cardSection.addItem(cardElement);
-    },
-  },
-  ".cards__list"
-);
-cardSection.renderItems();
-
 // Validation
 const editFormValidator = new FormValidator(
   constants.validationOptions,
@@ -87,6 +86,6 @@ editFormValidator.enableValidation();
 
 const addCardFormValidator = new FormValidator(
   constants.validationOptions,
-  constants.addCardForm
+  constants.addForm
 );
 addCardFormValidator.enableValidation();

@@ -6,11 +6,11 @@ export default class UserInfo {
   //returns an object containing information about the user
   //display the user data in the open form
   getUserInfo() {
-    const userInfo = {
+    this._userInfo = {
       title: this._title.textContent,
       description: this._description.textContent,
     };
-    return userInfo;
+    return this._userInfo;
   }
   //adds new user data to the page after successful submission
   setUserInfo(data) {
