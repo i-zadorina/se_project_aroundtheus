@@ -33,15 +33,15 @@ const userInformation = new UserInfo({
 });
 
 // PopupWithForm
-const addCardForm = new PopupWithForm("#add-modal", handleAddCardSubmit);
-addCardForm.setEventListeners();
+const addCardModal = new PopupWithForm("#add-modal", handleAddCardSubmit);
+addCardModal.setEventListeners();
 
-const profileEditForm = new PopupWithForm("#edit-modal", handleEditSubmit);
-profileEditForm.setEventListeners();
+const profileEditModal = new PopupWithForm("#edit-modal", handleEditSubmit);
+profileEditModal.setEventListeners();
 
 // Handlers
-function handleImageClick() {
-  popupImage.open(this);
+function handleImageClick(data) {
+  popupImage.open(data);
 }
 
 function handleEditSubmit(data) {
@@ -49,16 +49,15 @@ function handleEditSubmit(data) {
     title: data.title,
     description: data.description,
   });
-  profileEditForm.close();
+  profileEditModal.close();
 }
 
 function handleAddCardSubmit(data) {
-  const name = data.name;
-  const link = data.link;
-  const cardData = { name, link };
+  const { title, link } = data;
+  const cardData = { name: title, link: link };
   const cardElement = createCard(cardData);
   cardSection.addItem(cardElement);
-  addCardForm.close();
+  addCardModal.close();
 }
 // Event listeners for opening modals
 constants.editButton.addEventListener("click", () => {
@@ -66,11 +65,11 @@ constants.editButton.addEventListener("click", () => {
   const userData = userInformation.getUserInfo();
   constants.titleInput.value = userData.title;
   constants.descriptionInput.value = userData.description;
-  profileEditForm.open();
+  profileEditModal.open();
 });
 
 constants.addCardButton.addEventListener("click", () => {
-  addCardForm.open();
+  addCardModal.open();
 });
 
 // PopupWithImage for image preview
