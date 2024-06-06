@@ -33,6 +33,7 @@ export const editForm = document.forms["modal-edit-form"];
 export const addForm = document.forms["modal-add-form"];
 export const titleInput = document.querySelector("#title-input");
 export const descriptionInput = document.querySelector("#description-input");
+export const avatarButton = document.querySelector("#avatar-button");
 // Validation
 export const validationOptions = {
   inputSelector: ".modal__input",

@@ -15,4 +15,11 @@ export default class Section {
   addItem(item) {
     this._container.prepend(item);
   }
+  setItems(items) {
+    this._items = items;
+}
+
+  // getItem(itemId){
+  //   return this._items.find((item)=>item.id===itemId);
+  // }
 }
