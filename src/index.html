@@ -27,9 +27,9 @@
               class="profile__image"
             />
             <button
-            type="button"
-            class="profile__avatar-button"
-            id="avatar-button"
+              type="button"
+              class="profile__avatar-button"
+              id="avatar-button"
             ></button>
           </div>
           <div class="profile__info">
@@ -141,8 +141,8 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-     <!-- Modal for changing avatar -->
-     <div class="modal" id="avatar-modal">
+    <!-- Modal for changing avatar -->
+    <div class="modal" id="avatar-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close"></button>
         <p class="modal__heading">Change profile picture</p>
@@ -168,10 +168,12 @@
     <div class="modal" id="delete-card-modal">
       <div class="modal__container">
         <button class="modal__close" type="button" id="modal-close"></button>
-        <p class="modal__heading">Are you sure?</p>
-        <button class="modal__button modal__button_disabled" disabled>
+        <form class="modal__form" id="modal-delete-form"></form>
+          <p class="modal__heading">Are you sure?</p>
+          <button class="modal__button modal__button_disabled" disabled>
           Yes
-        </button>
+          </button>
+        </form>
       </div>
     </div>
     <!-- Template of cards -->

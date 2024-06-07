@@ -1,25 +1,25 @@
 export default class UserInfo {
-  constructor({ name, description,avatar }) {
-    this._title = document.querySelector(name);
+  constructor({ name, description, avatar }) {
+    this._name = document.querySelector(name);
     this._description = document.querySelector(description);
-    this._avatar=document.querySelector(avatar);
+    this._avatar = document.querySelector(avatar);
   }
   //returns an object containing information about the user
   //display the user data in the open form
   getUserInfo() {
-    this._userInfo = {
-      title: this._title.textContent,
+    this._userData = {
+      name: this._name.textContent,
       description: this._description.textContent,
-      avatar:this._avatar.src,
+      avatar: this._avatar.src,
     };
-    return this._userInfo;
+    return this._userData;
   }
   //adds new user data to the page after successful submission
-  setUserInfo(data) {
-    this._title.textContent = data.title;
-    this._description.textContent = data.description;
+  setUserInfo({ name, description }) {
+    this._name.textContent = name;
+    this._description.textContent = description;
   }
-  setAvatar(avatar){
-    this._avatar.src=avatar;
+  setAvatar(avatarUrl) {
+    this._avatar.src = avatarUrl;
   }
 }
