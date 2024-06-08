@@ -13,7 +13,7 @@ import UserInfo from "../components/UserInfo.js";
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "46b2bf9b-75ca-4b5b-87f8-420e1eddb0ec",
+    authorization: "7f5d30ae-91c6-4c4a-9270-9bbdbc1bcd50",
     "Content-Type": "application/json",
   },
 });
@@ -28,14 +28,31 @@ function createCard(data) {
   );
   return cardElement.getView();
 }
-
+// api
+//   .getInitialCards()
+//   .then((cards) => {
+//     cardSection = new Section(
+//       {
+//         items: cards,
+//         renderer: createCard,
+//       },
+//       ".cards__list"
+//     );
+//     cardSection.renderItems();
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 api
   .getInitialCards()
   .then((cards) => {
     cardSection = new Section(
       {
         items: cards,
-        renderer: createCard,
+        renderer: (cardData) => {
+          const cardEl = createCard(cardData);
+          cardSection.addItem(cardEl);
+        },
       },
       ".cards__list"
     );
@@ -44,7 +61,6 @@ api
   .catch((err) => {
     console.error(err);
   });
-
 let cardSection;
 
 // UserInfo
@@ -53,20 +69,18 @@ const userInformation = new UserInfo({
   description: ".profile__description",
   avatar: ".profile__image",
 });
-
 api
   .getUserInfo()
   .then((res) => {
     userInformation.setUserInfo({
       name: res.name,
-      description: res.description,
+      description: res.about,
     });
     userInformation.setAvatar(res.avatar);
   })
   .catch((err) => {
     console.error(err);
   });
-
 // PopupWithImage and image preview
 const popupImage = new PopupWithImage("#modal-preview");
 popupImage.setEventListeners();
