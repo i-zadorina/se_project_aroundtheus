@@ -3,39 +3,39 @@
   align-items: center;
   padding: 40px 0 0;
 }
+.profile__avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
 .profile__image {
   width: 120px;
   height: 120px;
   padding: 0;
-  opacity: 1;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
   transition: 0.3s ease-in-out;
 }
-.profile__avatar {
-  position: relative;
+.profile__image:hover {
+  opacity: 0.6;
 }
-.profile__avatar-button {
-  background: transparent;
-  border: none;
+.profile__image_edit {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 26px;
   height: 26px;
-  top: 50px;
-  left: 50px;
-  cursor: pointer;
   opacity: 0;
-  background-size: cover;
-  transition: 0.3s ease-in-out;
-  visibility: hidden;
-}
-.profile__image:hover .profile__avatar-button {
-  background: url(../images/Change_avatar.png) center no-repeat;
-  background-color: black;
-  opacity: 0.6;
+  transition: opacity 0.3s ease;
   cursor: pointer;
-  visibility: visible;
+}
+.profile__avatar:hover .profile__image {
+  opacity: 0.6;
+}
+.profile__avatar:hover .profile__image_edit {
+  opacity: 1;
 }
 .profile__info {
   display: grid;

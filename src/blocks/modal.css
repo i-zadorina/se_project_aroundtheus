@@ -83,6 +83,9 @@
   grid-gap: 30px;
   padding-top: 54px;
 }
+.modal__form-delete {
+  padding: 0;
+}
 .modal__label {
   border-bottom: rgb(0, 0, 0, 0.2) 1px solid;
   font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -130,7 +133,7 @@
 .modal__button_disabled {
   opacity: 0.2;
 }
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 510px) {
   .modal__container {
     width: 238px;
     padding: 25px 22px;

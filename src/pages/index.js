@@ -9,6 +9,7 @@ import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 
+let cardSection;
 // API
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -28,24 +29,22 @@ function createCard(data) {
   );
   return cardElement.getView();
 }
-// api
-//   .getInitialCards()
-//   .then((cards) => {
-//     cardSection = new Section(
-//       {
-//         items: cards,
-//         renderer: createCard,
-//       },
-//       ".cards__list"
-//     );
-//     cardSection.renderItems();
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-api
-  .getInitialCards()
-  .then((cards) => {
+// UserInfo and Cards
+const userInformation = new UserInfo({
+  name: ".profile__title",
+  description: ".profile__description",
+  avatar: ".profile__image",
+});
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  // UserInfo
+  .then(([userData, cards]) => {
+    userInformation.setUserInfo({
+      name: userData.name,
+      description: userData.about,
+    });
+    userInformation.setAvatar(userData.avatar);
+    // Cards
     cardSection = new Section(
       {
         items: cards,
@@ -61,26 +60,6 @@ api
   .catch((err) => {
     console.error(err);
   });
-let cardSection;
-
-// UserInfo
-const userInformation = new UserInfo({
-  name: ".profile__title",
-  description: ".profile__description",
-  avatar: ".profile__image",
-});
-api
-  .getUserInfo()
-  .then((res) => {
-    userInformation.setUserInfo({
-      name: res.name,
-      description: res.about,
-    });
-    userInformation.setAvatar(res.avatar);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
 // PopupWithImage and image preview
 const popupImage = new PopupWithImage("#modal-preview");
 popupImage.setEventListeners();
@@ -88,7 +67,6 @@ popupImage.setEventListeners();
 function handleImageClick(data) {
   popupImage.open(data);
 }
-
 // Likes
 function handleLikeClick(cardId) {
   if (cardId._isLiked) {
@@ -113,7 +91,6 @@ function handleLikeClick(cardId) {
       });
   }
 }
-
 // PopupWithForm
 const avatarModal = new PopupWithForm("#avatar-modal", handleAvatarSubmit);
 avatarModal.setEventListeners();
@@ -123,15 +100,16 @@ profileEditModal.setEventListeners();
 
 const addCardModal = new PopupWithForm("#add-modal", handleAddCardSubmit);
 addCardModal.setEventListeners();
-
 // Handlers
-function handleAvatarSubmit(data) {
+function handleAvatarSubmit({ link }) {
   avatarModal.renderLoad(true);
   api
-    .updateAvatar({ avatar: data.link })
+    .updateAvatar(link)
     .then((res) => {
       userInformation.setAvatar(res.avatar);
       avatarModal.close();
+      constants.avatarForm.reset();
+      avatarFormValidator.toggleBtnState();
     })
     .catch((err) => {
       console.error("Oops...Failed to update avatar:", err);
@@ -180,7 +158,7 @@ function handleAddCardSubmit(data) {
 // Event listeners for opening modals
 constants.editButton.addEventListener("click", () => {
   const userData = userInformation.getUserInfo();
-  constants.titleInput.value = userData.title;
+  constants.titleInput.value = userData.name;
   constants.descriptionInput.value = userData.description;
   profileEditModal.open();
   // editFormValidator.resetValidation();
@@ -189,36 +167,33 @@ constants.editButton.addEventListener("click", () => {
 constants.addCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
+
 constants.avatarButton.addEventListener("click", () => {
   avatarModal.open();
 });
-
 // Delete cards
-const deleteModal = new PopupWithSubmit(
-  "#delete-card-modal",
-  handleDeleteClick
+const deleteModal = new PopupWithSubmit("#delete-card-modal", (card) =>
+  handleDeleteClick(card)
 );
+deleteModal.setEventListeners();
 
 function handleDeleteClick(card) {
-  deleteModal.open();
-  deleteModal.handleDelete(() => {
-    deleteModal.renderLoad(true);
-    console.log("Loading...");
+  deleteModal.open(() => {
+    deleteModal.showLoading();
     api
       .deleteCard(card.getCardId())
       .then(() => {
-        console.log("Card deleted");
-        card.removeCard();
+        card.deleteCard();
+        deleteModal.close();
       })
       .catch((err) => {
         console.error("Failed deleting card:", err);
       })
       .finally(() => {
-        deleteModal.renderLoad(false);
+        deleteModal.hideLoading();
       });
   });
 }
-deleteModal.setEventListeners();
 // Validation
 const editFormValidator = new FormValidator(
   constants.validationOptions,

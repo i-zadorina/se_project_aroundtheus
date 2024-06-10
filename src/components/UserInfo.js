@@ -4,8 +4,6 @@ export default class UserInfo {
     this._description = document.querySelector(description);
     this._avatar = document.querySelector(avatar);
   }
-  //returns an object containing information about the user
-  //display the user data in the open form
   getUserInfo() {
     this._userData = {
       name: this._name.textContent,
