@@ -68,23 +68,23 @@ function handleImageClick(data) {
   popupImage.open(data);
 }
 // Likes
-function handleLikeClick(cardId) {
-  if (cardId._isLiked) {
+function handleLikeClick(cardInstance) {
+  if (cardInstance._isLiked) {
     api
-      .removeLike(cardId._id)
+      .removeLike(cardInstance._id)
       .then(() => {
-        cardId._renderLikes();
-        cardId._isLiked = false;
+        cardInstance.renderLikes();
+        cardInstance._isLiked = false;
       })
       .catch((err) => {
         console.error(err);
       });
   } else {
     api
-      .addLike(cardId._id)
+      .addLike(cardInstance._id)
       .then(() => {
-        cardId._renderLikes();
-        cardId._isLiked = true;
+        cardInstance.renderLikes();
+        cardInstance._isLiked = true;
       })
       .catch((err) => {
         console.error(err);
@@ -112,7 +112,7 @@ function handleAvatarSubmit({ link }) {
       avatarFormValidator.toggleBtnState();
     })
     .catch((err) => {
-      console.error("Oops...Failed to update avatar:", err);
+      console.error(err);
     })
     .finally(() => {
       avatarModal.renderLoad(false);
@@ -161,7 +161,6 @@ constants.editButton.addEventListener("click", () => {
   constants.titleInput.value = userData.name;
   constants.descriptionInput.value = userData.description;
   profileEditModal.open();
-  // editFormValidator.resetValidation();
 });
 
 constants.addCardButton.addEventListener("click", () => {

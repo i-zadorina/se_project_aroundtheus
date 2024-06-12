@@ -35,7 +35,7 @@ export default class Card {
       this._handleImageClick(this);
     });
   }
-  _renderLikes() {
+  renderLikes() {
     this._likeBtn.classList.toggle("card__like-button_active");
   }
 

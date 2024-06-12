@@ -7,7 +7,7 @@ export default class PopupWithSubmit extends Popup {
     this._modalButtonText = this._modalButton.textContent;
     this._loadingText = loadingText;
   }
-  setSubmitAction(submitHandler) {
+  _setSubmitAction(submitHandler) {
     this._handleSubmit = submitHandler;
   }
   showLoading() {
