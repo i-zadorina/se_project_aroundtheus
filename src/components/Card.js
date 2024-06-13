@@ -9,7 +9,7 @@ export default class Card {
     this.name = data.name;
     this.link = data.link;
     this._id = data._id;
-    this._isLiked = data._isLiked;
+    this._isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;

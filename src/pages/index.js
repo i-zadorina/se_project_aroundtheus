@@ -69,12 +69,12 @@ function handleImageClick(data) {
 }
 // Likes
 function handleLikeClick(cardInstance) {
-  if (cardInstance._isLiked) {
+  if (cardInstance.isLiked) {
     api
       .removeLike(cardInstance._id)
       .then(() => {
         cardInstance.renderLikes();
-        cardInstance._isLiked = false;
+        cardInstance.isLiked = false;
       })
       .catch((err) => {
         console.error(err);
@@ -84,7 +84,7 @@ function handleLikeClick(cardInstance) {
       .addLike(cardInstance._id)
       .then(() => {
         cardInstance.renderLikes();
-        cardInstance._isLiked = true;
+        cardInstance.isLiked = true;
       })
       .catch((err) => {
         console.error(err);
