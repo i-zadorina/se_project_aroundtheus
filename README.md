@@ -9,7 +9,6 @@ The instructors provided us with videos assisting us in the basic structure of t
 ## Project features
 
 - Semantic HTML5
-- Flexbox and Grid
 - Positioning and Responsive design
 - Flat BEM file structure
 - A custom form
